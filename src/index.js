@@ -2,7 +2,7 @@ import './styles.css';
 
 new CountdownTimer({
   selector: '#timer-1',
-  targetDate: new Date('Jul 17, 2019'),
+  targetDate: new Date('Apr 16, 2021'),
 });
 
 const days = Math.floor(time / (1000 * 60 * 60 * 24));
