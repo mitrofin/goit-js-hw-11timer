@@ -1,9 +1,5 @@
-import './styles.css';
-/* import Timer from './js/countDownTimer'; */
-
 class CountdownTimer{
-  constructor({ selector, countdown }) {
-      this.intervalId = null;
+    constructor({selector, countdown }) {
         this.selector = selector;
         this.countdown = countdown;
         this.refs = {
@@ -16,45 +12,36 @@ class CountdownTimer{
     }
 
     renderTimer() {
-        this.intervalId = setInterval(() => {
+      setInterval(() => {
         const currentTime = Date.now();
-        const countdown  = this.countdown - currentTime;
-        /* const time =  */this.updateTimer(getTimeComponets(countdown));
+        const countdown = this.targetDate - currentTime;
+        this.updateTimer(getTimeComponets(countdown));
       }, 1000);
     }
 
+    updateTimer({ days, hours, mins, secs }) {
+        this.refs.$days.innerHTML = days,
+        this.refs.$hours.innerHTML = hours,
+        this.refs.$mins.innerHTML = mins,
+        this.refs.$secs.innerHTML = secs;
+    }
+
+    pad(value) { 
+        return String(value).padStart(2, '0');
+    }
     
     getTimeComponets(time) {
         const days = pad(Math.floor(time / (1000 * 60 * 60 * 24)));
         const hours = pad(Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
         const mins = pad(Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)));
         const secs = pad(Math.floor((time % (1000 * 60)) / 1000));
-      return { days, hours, mins, secs };
+        return { days, hours, mins, secs };
     }
-  
-    updateTimer({ days, hours, mins, secs }) {
-          this.refs.$days.textContent = days,
-          this.refs.$hours.innerHTML = hours,
-          this.refs.$mins.innerHTML = mins,
-          this.refs.$secs.innerHTML = secs;
-      }
-
-  
-    pad(value) { 
-        return String(value).padStart(2, '0');
-      }
-  
-
     
 
+
 } 
- /* finalTime.renderTimer(); */
+ 
 
-const finalTime = new CountdownTimer({
-  selector: '#timer-1',
-  countdown: new Date('Apr 16, 2021'),
-});
 
-/* finalTime.renderTimer() */
-
-/* document.addEventListener('DOMContentLoaded', finalTime.renderTimer.bind(finalTime)); */
+export default CountdownTimer;
