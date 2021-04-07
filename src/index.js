@@ -1,7 +1,7 @@
 import './styles.css';
-/* import Timer from './js/countDownTimer'; */
+import Timer from './js/countDownTimer';
 
-class CountdownTimer{
+/* class CountdownTimer{
   constructor({ selector, countdown }) {
       this.intervalId = null;
       this.selector = selector;
@@ -21,9 +21,6 @@ class CountdownTimer{
         const currentTime = Date.now();
           const targetTime = this.countdown - currentTime;
           this.updateTimer(this.getTimeComponets(targetTime));
-        /*   const time = this.getTimeComponets(targetTime);
-          this.updateTimer(time); */
-          
       }, 1000);
     }
 
@@ -40,10 +37,7 @@ class CountdownTimer{
           this.refs.days.textContent = days,
           this.refs.hours.textContent = hours,
           this.refs.mins.textContent = mins,
-          /* if (this.refs.$secs === 01) {
-              this.refs.span.label.textContent = "ctreylf";
-            } */
-            this.refs.secs.textContent = secs;
+          this.refs.secs.textContent = secs;
       
       }
 
@@ -55,14 +49,14 @@ class CountdownTimer{
 
     
 
-} 
- /* finalTime.renderTimer(); */
+}  */
+ 
 
-const finalTime = new CountdownTimer({
+const finalTime = new Timer({
   selector: '#timer-1',
   countdown: new Date('Apr 16, 2021'),
 });
 
-/* finalTime.renderTimer() */
+
 
 document.addEventListener('DOMContentLoaded', finalTime.renderTimer.bind(finalTime));
