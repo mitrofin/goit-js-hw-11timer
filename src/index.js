@@ -11,4 +11,4 @@ const finalTime = new Timer({
 
 /* document.addEventListener('DOMContentLoaded', finalTime.renderTimer.bind(finalTime)); */
 
-window.onload = finalTime.renderTimer();
+/* window.onload = finalTime.renderTimer(); */

@@ -10,6 +10,7 @@ class CountdownTimer{
             secs: document.querySelector(`${selector} [data-value="secs"]`),
             timer: document.querySelector(`${selector} #timer-1`),
         };
+        this.renderTimer();
     }
 
     renderTimer() {
@@ -17,7 +18,9 @@ class CountdownTimer{
         const currentTime = Date.now();
         const targetTime = this.countdown - currentTime;
         this.updateTimer(this.getTimeComponets(targetTime));
-      }, 1000);
+        }, 1000);
+        
+        
     }
 
     
@@ -41,6 +44,8 @@ class CountdownTimer{
         return String(value).padStart(2, '0');
     }
     
+    
+ 
 
 
 } 
